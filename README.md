@@ -1,11 +1,11 @@
 ## Hola 👋
 
+# Soy Juan Esteban García Cardona.
 <div align="center">
 
 <img src="https://github.com/juanezcere/juanezcere.github.io/blob/master/light_photo.jpg?raw=true#gh-light-mode-only" alt="Foto del desarrollador con fondo oscuro" width="200">
 <img src="https://github.com/juanezcere/juanezcere.github.io/blob/master/dark_photo.jpg?raw=true#gh-dark-mode-only" alt="Foto del desarrollador con fondo claro" width="200">
 
-# Soy Juan Esteban García Cardona.
 </div>
 
 ✨ Ingeniero electrónico con amplia experiencia en desarrollo y diseño de hardware y software, con un enfoque especial en sistemas embebidos y algoritmos.
