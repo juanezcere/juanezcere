@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigation, useProjects, useSettings } from '../../application/state';
+import { useNavigation, useProjectModal, useProjects, useSettings } from '../../application/state';
 import { DynamicBackdrop } from '../components/dashboard/DynamicBackdrop';
 import { ProjectCarousel } from '../components/dashboard/ProjectCarousel';
 import { QuickAccessRow } from '../components/dashboard/QuickAccessRow';
@@ -12,6 +12,7 @@ export function HomeView() {
   const { navigateTo } = useNavigation();
   const { projects } = useProjects();
   const { settings, setActiveProject } = useSettings();
+  const { selectedProjectId, openProject } = useProjectModal();
 
   const activeIndex = Math.max(
     0,
@@ -40,9 +41,24 @@ export function HomeView() {
     [projects, setActiveProject],
   );
 
+  const openProjectAtIndex = useCallback(
+    (index: number) => {
+      if (projects.length === 0) {
+        return;
+      }
+
+      const project = projects[(index + projects.length) % projects.length];
+
+      if (project) {
+        openProject(project.id);
+      }
+    },
+    [openProject, projects],
+  );
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.altKey || event.ctrlKey || event.metaKey) {
+      if (event.altKey || event.ctrlKey || event.metaKey || selectedProjectId) {
         return;
       }
 
@@ -53,6 +69,15 @@ export function HomeView() {
         (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName))
       ) {
         return;
+      }
+
+      if (
+        event.key === 'Enter' &&
+        activeProject &&
+        !(target instanceof HTMLElement && target.closest('button, a, [role="button"]'))
+      ) {
+        event.preventDefault();
+        openProject(activeProject.id);
       }
 
       if (event.key === 'ArrowRight') {
@@ -71,7 +96,7 @@ export function HomeView() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [activeIndex, selectProject]);
+  }, [activeIndex, activeProject, openProject, selectProject, selectedProjectId]);
 
   return (
     <div className="relative z-10 flex flex-1 flex-col justify-end gap-5">
@@ -116,13 +141,14 @@ export function HomeView() {
               projects={projects}
               activeIndex={activeIndex}
               onSelect={selectProject}
+              onOpen={openProjectAtIndex}
             />
 
             <QuickAccessRow
               activeProject={activeProject}
               onExplore={() => navigateTo('projects')}
               onAbout={() => navigateTo('about')}
-              onFeatured={() => navigateTo('projects')}
+              onFeatured={() => activeProject && openProject(activeProject.id)}
               onSettings={() => navigateTo('settings')}
             />
           </>

@@ -4,6 +4,7 @@ import { I18nextProvider } from 'react-i18next';
 import {
   NavigationProvider,
   ProfileProvider,
+  ProjectModalProvider,
   ProjectsProvider,
   SettingsProvider,
   ThemeProvider,
@@ -60,9 +61,11 @@ async function bootstrap(root: HTMLElement): Promise<void> {
           <ThemeProvider>
             <ProfileProvider profile={profile}>
               <ProjectsProvider projects={projects}>
-                <NavigationProvider>
-                  <AppShell />
-                </NavigationProvider>
+                <ProjectModalProvider>
+                  <NavigationProvider>
+                    <AppShell />
+                  </NavigationProvider>
+                </ProjectModalProvider>
               </ProjectsProvider>
             </ProfileProvider>
           </ThemeProvider>

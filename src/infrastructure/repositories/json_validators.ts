@@ -217,6 +217,7 @@ export function parseUserProfile(payload: unknown): UserProfile {
       light: readString(avatarUrls, 'light', 'profile.avatarUrls'),
       dark: readString(avatarUrls, 'dark', 'profile.avatarUrls'),
     },
+    stack: readStringArray(payload.stack, 'profile.stack'),
     translations: readProfileTranslations(payload.translations, 'profile.translations'),
     email: readOptionalString(payload, 'email', 'profile'),
     socialLinks: readOptionalSocialLinks(payload.socialLinks, 'profile.socialLinks'),

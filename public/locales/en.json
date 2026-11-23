@@ -1,8 +1,8 @@
 {
   "app": {
     "name": "X-Folio Series X",
-    "phaseTitle": "Phase 4: main stage",
-    "phaseDescription": "Carousel, dynamic backdrop, and editable data from public/.",
+    "phaseTitle": "Phase 5: views and final polish",
+    "phaseDescription": "Detail, filterable catalog, advanced settings, and accessibility.",
     "loadError": "The application data could not be loaded."
   },
   "nav": {
@@ -31,7 +31,8 @@
   },
   "about": {
     "heading": "About me — architecture & design",
-    "bio": "Developer specialized in reactive interfaces built with Vite, TypeScript, and React using layered architecture and SOLID principles."
+    "stack": "Stack",
+    "contact": "Contact"
   },
   "projects": {
     "heading": "Full project catalog",
@@ -39,11 +40,26 @@
     "previous": "Previous project",
     "next": "Next project",
     "empty": "No projects available",
-    "emptyDescription": "Add projects in public/projects.json."
+    "emptyDescription": "Add projects in public/projects.json.",
+    "filterByTechnology": "Filter by technology",
+    "clearFilters": "Clear filters",
+    "resultCount": "Results: {{count}}",
+    "noMatches": "No matches",
+    "noMatchesDescription": "Try another combination of technologies.",
+    "openProject": "Open details for {{title}}",
+    "close": "Close"
   },
   "settings": {
     "heading": "System settings",
     "description": "Customize the 7 accent colors, the light/dark mode, and the interface language.",
-    "toggleMode": "Toggle light / dark mode"
+    "toggleMode": "Toggle light / dark mode",
+    "themeDescription": "Choose the accent color of the interface.",
+    "modeTitle": "Appearance mode",
+    "modeDescription": "Switch between light and dark theme.",
+    "darkMode": "Dark mode",
+    "lightMode": "Light mode",
+    "languageDescription": "Select the interface language.",
+    "reset": "Reset preferences",
+    "resetDescription": "Return to the original theme, dark mode, Spanish, and no active project."
   }
 }

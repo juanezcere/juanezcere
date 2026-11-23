@@ -5,6 +5,30 @@
     "light": "https://raw.githubusercontent.com/juanezcere/juanezcere.github.io/master/light_photo.jpg",
     "dark": "https://raw.githubusercontent.com/juanezcere/juanezcere.github.io/master/dark_photo.jpg"
   },
+  "stack": [
+    "React",
+    "TypeScript",
+    "Vite",
+    "Python",
+    "C",
+    "C++",
+    "JavaScript",
+    "Vue.js",
+    "REST API",
+    "SOAP",
+    "Embedded Systems"
+  ],
+  "email": "juanezcere@gmail.com",
+  "socialLinks": [
+    { "id": "page", "label": "Page", "url": "https://juanezcere.github.io/" },
+    { "id": "github", "label": "GitHub", "url": "https://github.com/juanezcere" },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/juan-esteban-garcia-cardona-221222238/"
+    },
+    { "id": "youtube", "label": "YouTube", "url": "https://www.youtube.com/@MrJuanezzz" }
+  ],
   "translations": {
     "es": {
       "title": "Ingeniero Electrónico & Desarrollador de Software",

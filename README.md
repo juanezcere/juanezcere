@@ -79,10 +79,11 @@ src/
 │   │   │   ├── ProfileBanner.tsx      # Izquierda: Foto, nombre y título profesional
 │   │   │   ├── NavTabs.tsx            # Centro: 4 íconos (Home, Info, Proyectos, Ajustes)
 │   │   │   └── SystemControls.tsx     # Derecha: Reloj + 3 íconos (Tema, Modo, Idioma)
-│   │   └── dashboard/       # Componentes del escenario principal:
-│   │       ├── DynamicBackdrop.tsx    # Fondo inmersivo reactivo al proyecto seleccionado
-│   │       ├── ProjectCarousel.tsx    # Fila horizontal de tarjetas (activa ampliada + secundarias)
-│   │       └── QuickAccessRow.tsx     # Fila inferior de accesos directos / destacados
+│   │   ├── dashboard/       # Componentes del escenario principal:
+│   │   │   ├── DynamicBackdrop.tsx    # Fondo inmersivo reactivo al proyecto seleccionado
+│   │   │   ├── ProjectCarousel.tsx    # Fila horizontal de tarjetas (activa ampliada + secundarias)
+│   │   │   └── QuickAccessRow.tsx     # Fila inferior de accesos directos / destacados
+│   │   └── projects/        # ProjectModal: detalle con teclado, foco y enlaces opcionales
 │   ├── views/               # Vistas correspondientes a cada pestaña (HomeView, AboutView, ProjectsView, SettingsView)
 │   └── layouts/             # Shell principal con la barra superior fija y contenedor dinámico
 │
@@ -104,9 +105,10 @@ public/
 Cada proyecto de `projects.json` conserva datos compartidos (`id`,
 `technologies`, `imageUrl`, `featured`, `year` y `links` opcionales) y agrupa
 `title`, `category` y `description` dentro de `translations`. En `profile.json`,
-el nombre, el badge y los avatares son compartidos, mientras que `title` y `bio`
-se agrupan por idioma dentro de `translations`. El idioma activo se resuelve
-con fallback a español en ambos casos.
+el nombre, el badge, los avatares, `stack`, `email` y `socialLinks` son
+compartidos, mientras que `title` y `bio` se agrupan por idioma dentro de
+`translations`. El idioma activo se resuelve con fallback a español en ambos
+casos.
 
 ### Puesta en Marcha
 
@@ -164,3 +166,10 @@ Fase 5: Vistas Secundarias, Pulido y Optimización
 
 - Implementar las vistas de detalle de información personal, catálogo completo de proyectos con filtros por tecnología y panel de configuración avanzado.
 - Auditar rendimiento (lazy loading de imágenes de fondo en alta resolución) y accesibilidad (aria-labels en todos los botones de íconos).
+
+Estado: Fase 5 implementada. `AboutView` consume perfil/stack/contacto desde
+`public/profile.json`; `ProjectsView` aplica filtros multiselección por
+tecnología (OR); `SettingsView` refleja tema, modo e idioma y restablece
+preferencias; `ProjectModal` se abre desde la tarjeta activa (clic o `Enter`),
+desde "Destacado" y desde el catálogo, con cierre por `Escape`, backdrop y
+botón, además de foco atrapado y restaurado.

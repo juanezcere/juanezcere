@@ -7,9 +7,10 @@ interface ProjectCarouselProps {
   readonly projects: readonly LocalizedProject[];
   readonly activeIndex: number;
   readonly onSelect: (index: number) => void;
+  readonly onOpen: (index: number) => void;
 }
 
-export function ProjectCarousel({ projects, activeIndex, onSelect }: ProjectCarouselProps) {
+export function ProjectCarousel({ projects, activeIndex, onSelect, onOpen }: ProjectCarouselProps) {
   const { t } = useTranslation();
   const tileRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
@@ -37,9 +38,11 @@ export function ProjectCarousel({ projects, activeIndex, onSelect }: ProjectCaro
             }}
             type="button"
             layout
-            aria-label={project.title}
+            aria-label={
+              isActive ? t('projects.openProject', { title: project.title }) : project.title
+            }
             aria-pressed={isActive}
-            onClick={() => onSelect(index)}
+            onClick={() => (isActive ? onOpen(index) : onSelect(index))}
             whileHover={{ y: -4 }}
             transition={{ duration: 0.28, ease: 'easeOut' }}
             className={`relative flex shrink-0 flex-col justify-end overflow-hidden rounded-[18px] border-2 text-left transition-colors ${

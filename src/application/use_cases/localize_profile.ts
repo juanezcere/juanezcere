@@ -12,6 +12,7 @@ export function localizeProfile(
     name: profile.name,
     badge: profile.badge,
     avatarUrls: profile.avatarUrls,
+    stack: profile.stack,
     email: profile.email,
     socialLinks: profile.socialLinks,
     title: translation.title,

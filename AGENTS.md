@@ -6,16 +6,16 @@ implementar. Este archivo solo cubre lo que no es evidente desde el código.
 
 ## Estado actual vs. objetivo
 
-- Las **Fases 1, 2, 3 y 4** están implementadas: dominio puro en `src/domain/`,
-  estado global en `src/application/state/` (`SettingsProvider`,
-  `ThemeProvider`, `NavigationProvider`, `ProjectsProvider`), infraestructura
-  en `src/infrastructure/` (repositorios JSON, localStorage, i18next, reloj) y
-  shell React en `src/presentation/` (`AppShell` + `TopBar` con `ProfileBanner`,
-  `NavTabs` y `SystemControls`). `HomeView` ya incluye dashboard, fondo
-  dinámico, carrusel y accesos rápidos.
-- Las vistas de About/Projects/Settings siguen siendo placeholders; el modal de
-  detalle y las vistas finales son Fase 5. No hay router: la navegación es
-  estado (`NavigationProvider`).
+- Las **Fases 1 a 5** están implementadas: dominio puro en `src/domain/`, estado
+  global en `src/application/state/` (`SettingsProvider`, `ThemeProvider`,
+  `NavigationProvider`, `ProfileProvider`, `ProjectsProvider`,
+  `ProjectModalProvider`), infraestructura en `src/infrastructure/`
+  (repositorios JSON, localStorage, i18next, reloj) y shell React en
+  `src/presentation/`.
+- `TopBar` tiene `ProfileBanner`, `NavTabs` y `SystemControls`; `HomeView`
+  incluye dashboard, fondo dinámico, carrusel y accesos rápidos. Las vistas
+  About/Projects/Settings son definitivas y `ProjectModal` muestra el detalle
+  del proyecto. No hay router: la navegación es estado (`NavigationProvider`).
 - El prototipo vanilla se conserva en `prototype/index.html` y sigue siendo la
   **fuente de verdad visual**. No lo borres ni lo edites salvo para comparar.
 - React 19, TypeScript, `@vitejs/plugin-react`, i18next/react-i18next,
@@ -27,10 +27,10 @@ implementar. Este archivo solo cubre lo que no es evidente desde el código.
 - Los 5 proyectos seed están en `public/projects.json` (imágenes remotas de
   Unsplash); reemplázalos por proyectos reales cuando estén disponibles. Cada
   proyecto guarda `translations` para `es/en/pt/fr/de`.
-- El perfil (nombre, badge y avatares light/dark) vive en
-  `public/profile.json`; editarlo no requiere tocar código. `ProfileBanner`
-  elige el avatar según `mode`. El título y el bio están en `translations`
-  por idioma dentro del mismo JSON, con fallback a español.
+- El perfil (nombre, badge, avatares light/dark, `stack`, `email` y
+  `socialLinks`) vive en `public/profile.json`; editarlo no requiere tocar
+  código. `ProfileBanner` elige el avatar según `mode`. El título y el bio están
+  en `translations` por idioma dentro del mismo JSON, con fallback a español.
 - Los diccionarios i18n están en `public/locales/{es,en,pt,fr,de}.json` y se
   cargan con `fetch` antes de renderizar. Deben mantener las mismas claves que
   `es.json`.
@@ -74,6 +74,10 @@ root) y la dirección de dependencias:
   fallback a español. `ProjectsProvider` expone los proyectos ya localizados.
 - El proyecto activo se persiste como `activeProjectId` dentro de `AppSettings`
   y `HomeView` lo mantiene sincronizado con el carrusel.
+- `ProjectModalProvider` guarda solo el `selectedProjectId` en memoria;
+  `ProjectModal` resuelve el proyecto localizado desde `ProjectsProvider` y
+  gestiona `Escape`, backdrop, foco y scroll lock. `SettingsView` restablece
+  tema, modo, idioma y `activeProjectId` a `DEFAULT_APP_SETTINGS`.
 - Tailwind v4 se integra con `@tailwindcss/vite`; `global.css` define `@theme`
   mapeando los tokens de `tokens.css` a utilidades (`bg-accent`, `text-text-secondary`,
   `bg-glass`, etc.). Las clases `.glass-panel`/`.glass-popover` están en
@@ -117,9 +121,10 @@ Contratos de UI ya fijados en el prototipo (mantenerlos al migrar a React):
 - `prototype/index.html` carga Lucide desde el CDN de unpkg e imágenes remotas
   de Unsplash; necesita red. La versión React usa `lucide-react` local.
 - La UI existente está en `src/presentation/components/top_bar/`,
-  `src/presentation/components/dashboard/`, `src/presentation/views/`,
-  `src/presentation/layouts/` y `src/presentation/styles/`; no hay vistas
-  finales ni router. La navegación es estado (`NavigationProvider`).
+  `src/presentation/components/dashboard/`,
+  `src/presentation/components/projects/`, `src/presentation/views/`,
+  `src/presentation/layouts/` y `src/presentation/styles/`; no hay router. La
+  navegación es estado (`NavigationProvider`).
 - `HomeView` consume `ProjectsProvider` y mantiene el foco del carrusel con
-  flechas `←/→`; el fondo y las tarjetas usan `framer-motion`. El detalle del
-  proyecto y el catálogo completo quedan para Fase 5.
+  flechas `←/→`; `Enter` y la tarjeta activa abren el modal. El fondo y las
+  tarjetas usan `framer-motion`.

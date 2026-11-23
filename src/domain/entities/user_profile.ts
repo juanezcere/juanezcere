@@ -20,6 +20,7 @@ export interface UserProfile {
   readonly name: string;
   readonly badge?: string;
   readonly avatarUrls: UserProfileAvatarUrls;
+  readonly stack: readonly string[];
   readonly translations: Readonly<Record<LanguageCode, UserProfileTranslation>>;
   readonly email?: string;
   readonly socialLinks?: readonly SocialLink[];
