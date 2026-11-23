@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Portfolio personal con UI inspirada en el inicio de Xbox Series X. `README.md`
+Portfolio personal con UI inspirada en el inicio de Xbox Series X. `ABOUT.md`
 (en español) es la especificación funcional y de arquitectura; léelo antes de
 implementar. Este archivo solo cubre lo que no es evidente desde el código.
 
@@ -54,7 +54,7 @@ pnpm preview
 
 ## Arquitectura objetivo
 
-Definida en `README.md`. Respeta esa estructura exacta (`domain` /
+Definida en `ABOUT.md`. Respeta esa estructura exacta (`domain` /
 `application` / `infrastructure` / `presentation`, `main.tsx` como composition
 root) y la dirección de dependencias:
 
