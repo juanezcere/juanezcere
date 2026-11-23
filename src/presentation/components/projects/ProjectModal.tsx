@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ExternalLink, X } from 'lucide-react';
+import { GitBranch, MonitorPlay, X } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useProjectModal, useProjects } from '../../../application/state';
@@ -133,20 +133,30 @@ export function ProjectModal() {
                 </div>
               ) : null}
 
-              {project.links && project.links.length > 0 ? (
+              {project.repositoryUrl || project.demoUrl ? (
                 <div className="flex flex-wrap gap-2">
-                  {project.links.map((link) => (
+                  {project.repositoryUrl ? (
                     <a
-                      key={link.url}
-                      href={link.url}
+                      href={project.repositoryUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full border border-glass-border bg-glass-hover px-3 py-1.5 text-sm font-semibold transition hover:border-accent"
+                      className="inline-flex items-center gap-2 rounded-full border border-glass-border bg-glass-hover px-3.5 py-2 text-sm font-semibold transition hover:border-accent"
                     >
-                      {link.label}
-                      <ExternalLink size={14} aria-hidden="true" />
+                      <GitBranch size={15} aria-hidden="true" className="text-accent" />
+                      {t('projects.repository')}
                     </a>
-                  ))}
+                  ) : null}
+                  {project.demoUrl ? (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-glass-border bg-glass-hover px-3.5 py-2 text-sm font-semibold transition hover:border-accent"
+                    >
+                      <MonitorPlay size={15} aria-hidden="true" className="text-accent" />
+                      {t('projects.demo')}
+                    </a>
+                  ) : null}
                 </div>
               ) : null}
 

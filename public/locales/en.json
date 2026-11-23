@@ -31,6 +31,7 @@
   "about": {
     "heading": "About me — architecture & design",
     "email": "Email",
+    "resume": "Download CV",
     "stack": "Stack",
     "contact": "Contact"
   },
@@ -46,6 +47,8 @@
     "resultCount": "Results: {{count}}",
     "noMatches": "No matches",
     "noMatchesDescription": "Try another combination of technologies.",
+    "repository": "Repository",
+    "demo": "Live demo",
     "openProject": "Open details for {{title}}",
     "close": "Close"
   },

@@ -97,6 +97,7 @@ tocar código:
 
 ```
 public/
+├── cv.pdf                   # Hoja de vida descargable desde AboutView
 ├── images/                  # Avatares e imágenes de proyectos (sin red al renderizar)
 │   ├── profile/             # light.jpg y dark.jpg
 │   └── projects/            # Una imagen por id de proyecto
@@ -106,13 +107,15 @@ public/
 ```
 
 Cada proyecto de `projects.json` conserva datos compartidos (`id`,
-`technologies`, `imageUrl`, `featured`, `year` y `links` opcionales) y agrupa
+`technologies`, `imageUrl`, `featured`, `year`, `repositoryUrl` y `demoUrl`
+opcionales) y agrupa
 `title`, `category` y `description` dentro de `translations`. En `profile.json`,
 el nombre, el badge, los avatares, `stack`, `email` y `socialLinks` son
 compartidos, mientras que `title` y `bio` se agrupan por idioma dentro de
 `translations`. El idioma activo se resuelve con fallback a español en ambos
 casos. Las rutas de `avatarUrls` e `imageUrl` apuntan a archivos dentro de
-`public/images/`, por lo que la interfaz no depende de imágenes remotas.
+`public/images/`, por lo que la interfaz no depende de imágenes remotas. El
+botón de hoja de vida descarga `/cv.pdf` desde `public/`.
 
 ### Puesta en Marcha
 

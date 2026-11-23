@@ -26,8 +26,11 @@ implementar. Este archivo solo cubre lo que no es evidente desde el código.
 - No instales dependencias sin preguntar antes.
 - Los 5 proyectos seed están en `public/projects.json`; reemplázalos por
   proyectos reales cuando estén disponibles. Cada proyecto guarda
-  `translations` para `es/en/pt/fr/de` y su `imageUrl` apunta a
-  `public/images/projects/`.
+  `translations` para `es/en/pt/fr/de`, su `imageUrl` apunta a
+  `public/images/projects/` y acepta `repositoryUrl`/`demoUrl` HTTP(S)
+  opcionales mostrados en el modal.
+- La hoja de vida se sirve desde `public/cv.pdf`; el botón de `AboutView`
+  apunta a `/cv.pdf` y el archivo real debe colocarse ahí sin tocar código.
 - El perfil (nombre, badge, avatares light/dark, `stack`, `email` y
   `socialLinks`) vive en `public/profile.json`; editarlo no requiere tocar
   código. Los avatares están en `public/images/profile/` y `ProfileBanner`
@@ -85,8 +88,8 @@ root) y la dirección de dependencias:
   `bg-glass`, etc.). Las clases `.glass-panel`/`.glass-popover` están en
   `@layer components` para que las utilidades Tailwind puedan sobrescribirlas.
 - El reloj vive en `src/infrastructure/time/clock_service.ts` y se consume con
-  el hook `src/presentation/hooks/use_clock.ts`; se actualiza cada segundo y su
-  tooltip muestra la fecha localizada.
+  el hook `src/presentation/hooks/use_clock.ts`; usa formato de 24 horas, se
+  actualiza cada segundo y su tooltip muestra la fecha localizada.
 - `TechnologyTag` centraliza las etiquetas de stack/tecnologías con ícono
   lucide; `LANGUAGES` incluye la bandera mostrada en el menú y en `SettingsView`.
 

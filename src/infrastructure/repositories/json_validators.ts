@@ -2,7 +2,6 @@ import { LANGUAGES } from '../../domain/constants';
 import type {
   LanguageCode,
   Project,
-  ProjectLink,
   ProjectTranslation,
   SocialLink,
   UserProfile,
@@ -42,6 +41,30 @@ function readOptionalString(
   return value;
 }
 
+function readOptionalUrl(
+  record: Record<string, unknown>,
+  key: string,
+  path: string,
+): string | undefined {
+  const value = readOptionalString(record, key, path);
+
+  if (value === undefined) {
+    return undefined;
+  }
+
+  try {
+    const url = new URL(value);
+
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+      throw new Error('Unsupported protocol.');
+    }
+  } catch {
+    throw new DataLoadError(`Expected an HTTP(S) URL at ${path}.${key}.`);
+  }
+
+  return value;
+}
+
 function readBoolean(record: Record<string, unknown>, key: string, path: string): boolean {
   const value = record[key];
 
@@ -76,29 +99,6 @@ function readStringArray(value: unknown, path: string): readonly string[] {
   }
 
   return value;
-}
-
-function readProjectLink(value: unknown, path: string): ProjectLink {
-  if (!isRecord(value)) {
-    throw new DataLoadError(`Expected an object at ${path}.`);
-  }
-
-  return {
-    label: readString(value, 'label', path),
-    url: readString(value, 'url', path),
-  };
-}
-
-function readOptionalLinks(value: unknown, path: string): readonly ProjectLink[] | undefined {
-  if (value === undefined) {
-    return undefined;
-  }
-
-  if (!Array.isArray(value)) {
-    throw new DataLoadError(`Expected an array at ${path}.`);
-  }
-
-  return value.map((item, index) => readProjectLink(item, `${path}[${index}]`));
 }
 
 function readTranslation(value: unknown, path: string): ProjectTranslation {
@@ -163,7 +163,8 @@ function readProject(value: unknown, path: string): Project {
     imageUrl: readString(value, 'imageUrl', path),
     featured: readBoolean(value, 'featured', path),
     year: readOptionalNumber(value, 'year', path),
-    links: readOptionalLinks(value.links, `${path}.links`),
+    repositoryUrl: readOptionalUrl(value, 'repositoryUrl', path),
+    demoUrl: readOptionalUrl(value, 'demoUrl', path),
   };
 }
 

@@ -1,10 +1,5 @@
 import type { LanguageCode } from './language';
 
-export interface ProjectLink {
-  readonly label: string;
-  readonly url: string;
-}
-
 export interface ProjectTranslation {
   readonly title: string;
   readonly category: string;
@@ -18,7 +13,8 @@ export interface Project {
   readonly imageUrl: string;
   readonly featured: boolean;
   readonly year?: number;
-  readonly links?: readonly ProjectLink[];
+  readonly repositoryUrl?: string;
+  readonly demoUrl?: string;
 }
 
 export interface LocalizedProject extends Omit<Project, 'translations'> {

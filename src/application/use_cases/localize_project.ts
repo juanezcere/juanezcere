@@ -14,7 +14,8 @@ export function localizeProject(project: Project, language: LanguageCode): Local
     imageUrl: project.imageUrl,
     featured: project.featured,
     year: project.year,
-    links: project.links,
+    repositoryUrl: project.repositoryUrl,
+    demoUrl: project.demoUrl,
   };
 }
 
