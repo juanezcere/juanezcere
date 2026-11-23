@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SOURCE_BRANCH="${1:-${BRANCH:-}}"
+CURRENT_BRANCH="$(git branch --show-current)"
+SOURCE_BRANCH="${1:-${BRANCH:-$CURRENT_BRANCH}}"
 TARGET_BRANCH="${2:-${TARGET_BRANCH:-main}}"
 
 if [[ -z "$SOURCE_BRANCH" ]]; then
-  echo "Error: The source branch is mandatory."
-  echo "Usage: $0 <source_branch> [target_branch: dev|qa|main]"
-  echo "   or: BRANCH=<source_branch> TARGET_BRANCH=<target_branch> $0"
+  echo "Error: Detached HEAD detected and no source branch was provided."
+  echo "Usage: $0 [source_branch] [target_branch: dev|qa|main]"
   exit 1
 fi
 
@@ -21,12 +21,19 @@ if [[ "$SOURCE_BRANCH" == "$TARGET_BRANCH" ]]; then
   exit 1
 fi
 
+echo "Branch '$SOURCE_BRANCH' will be deployed into '$TARGET_BRANCH'."
+read -r -p "Do you want to proceed? [y/N]: " confirm_deploy
+if [[ ! "$confirm_deploy" =~ ^[Yy]$ ]]; then
+  echo "Deployment cancelled by user."
+  exit 0
+fi
+
 if [[ -n "$(git status --porcelain)" ]]; then
   echo "Warning: You have uncommitted or untracked changes:"
   git status --short
   echo ""
-  read -r -p "Do you want to continue anyway? [y/N]: " confirm
-  if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+  read -r -p "Do you want to continue anyway? [y/N]: " confirm_dirty
+  if [[ ! "$confirm_dirty" =~ ^[Yy]$ ]]; then
     echo "Deployment aborted by user."
     exit 1
   fi
@@ -84,4 +91,4 @@ if [[ "$PROMOTED" == false ]]; then
 fi
 
 git checkout "$SOURCE_BRANCH"
-echo "Deployment pipeline up to '$TARGET_BRANCH' completed successfully!"
+echo "Deployment pipeline from '$SOURCE_BRANCH' up to '$TARGET_BRANCH' completed successfully!"
