@@ -4,11 +4,16 @@ export interface SocialLink {
   readonly url: string;
 }
 
+export interface UserProfileAvatarUrls {
+  readonly light: string;
+  readonly dark: string;
+}
+
 export interface UserProfile {
   readonly name: string;
-  readonly title: string;
-  readonly bio: string;
-  readonly avatarUrl: string;
+  readonly badge?: string;
+  readonly avatarUrls: UserProfileAvatarUrls;
   readonly email?: string;
+  readonly bio?: string;
   readonly socialLinks?: readonly SocialLink[];
 }

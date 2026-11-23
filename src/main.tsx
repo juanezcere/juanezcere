@@ -1,16 +1,18 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { I18nextProvider } from 'react-i18next';
-import { NavigationProvider, SettingsProvider, ThemeProvider } from './application/state';
+import { NavigationProvider, ProfileProvider, SettingsProvider, ThemeProvider } from './application/state';
 import { DEFAULT_APP_SETTINGS } from './domain/constants';
 import type { AppSettings } from './domain/entities';
 import { createI18n, detectPreferredLanguage } from './infrastructure/i18n';
+import { StaticUserProfileRepository } from './infrastructure/repositories';
 import { LocalStorageAppSettingsStorage, LocalStorageService } from './infrastructure/storage';
-import { PhaseStatus } from './presentation/components/common/PhaseStatus';
+import { AppShell } from './presentation/layouts/AppShell';
 import './presentation/styles/tokens.css';
 import './presentation/styles/global.css';
 
 const settingsStorage = new LocalStorageAppSettingsStorage(new LocalStorageService());
+const userProfileRepository = new StaticUserProfileRepository();
 const initialSettings: AppSettings = settingsStorage.load() ?? {
   ...DEFAULT_APP_SETTINGS,
   language: detectPreferredLanguage(),
@@ -37,9 +39,11 @@ createRoot(rootElement).render(
         onLanguageChange={handleLanguageChange}
       >
         <ThemeProvider>
-          <NavigationProvider>
-            <PhaseStatus />
-          </NavigationProvider>
+          <ProfileProvider repository={userProfileRepository}>
+            <NavigationProvider>
+              <AppShell />
+            </NavigationProvider>
+          </ProfileProvider>
         </ThemeProvider>
       </SettingsProvider>
     </I18nextProvider>

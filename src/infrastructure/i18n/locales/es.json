@@ -5,13 +5,14 @@
     "phaseDescription": "Repositorios, persistencia y proveedores listos."
   },
   "nav": {
+    "label": "Navegación principal",
     "home": "Inicio",
     "about": "Sobre mí",
     "projects": "Proyectos",
     "settings": "Configuración"
   },
   "profile": {
-    "role": "Arquitecto Frontend & UI"
+    "title": "Ingeniero Electrónico & Desarrollador de Software"
   },
   "controls": {
     "theme": "Color de acento",

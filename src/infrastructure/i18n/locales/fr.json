@@ -5,13 +5,14 @@
     "phaseDescription": "Dépôts, persistance et fournisseurs prêts."
   },
   "nav": {
+    "label": "Navigation principale",
     "home": "Accueil",
     "about": "À propos",
     "projects": "Projets",
     "settings": "Paramètres"
   },
   "profile": {
-    "role": "Architecte Frontend & UI"
+    "title": "Ingénieur Électronique & Développeur Logiciel"
   },
   "controls": {
     "theme": "Couleur d’accent",

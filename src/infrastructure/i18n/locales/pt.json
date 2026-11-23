@@ -5,13 +5,14 @@
     "phaseDescription": "Repositórios, persistência e provedores prontos."
   },
   "nav": {
+    "label": "Navegação principal",
     "home": "Início",
     "about": "Sobre mim",
     "projects": "Projetos",
     "settings": "Configurações"
   },
   "profile": {
-    "role": "Arquiteto Frontend & UI"
+    "title": "Engenheiro Eletrônico & Desenvolvedor de Software"
   },
   "controls": {
     "theme": "Cor de destaque",

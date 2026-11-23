@@ -5,13 +5,14 @@
     "phaseDescription": "Repositories, Persistenz und Provider sind bereit."
   },
   "nav": {
+    "label": "Hauptnavigation",
     "home": "Start",
     "about": "Über mich",
     "projects": "Projekte",
     "settings": "Einstellungen"
   },
   "profile": {
-    "role": "Frontend- & UI-Architekt"
+    "title": "Elektronikingenieur & Softwareentwickler"
   },
   "controls": {
     "theme": "Akzentfarbe",
