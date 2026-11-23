@@ -1,18 +1,13 @@
-import { createContext, useContext, useMemo, type ReactNode } from 'react';
-import type { LocalizedProject, Project } from '../../domain/entities';
+import { useMemo, type ReactNode } from 'react';
+import type { Project } from '../../domain/entities';
 import { localizeProjects } from '../use_cases';
-import { useSettings } from './settings_context';
+import { ProjectsContext, type ProjectsContextValue } from './projects_scope';
+import { useSettings } from './settings_scope';
 
 interface ProjectsProviderProps {
   readonly projects: readonly Project[];
   readonly children: ReactNode;
 }
-
-interface ProjectsContextValue {
-  readonly projects: readonly LocalizedProject[];
-}
-
-const ProjectsContext = createContext<ProjectsContextValue | null>(null);
 
 export function ProjectsProvider({ projects, children }: ProjectsProviderProps) {
   const { settings } = useSettings();
@@ -26,14 +21,4 @@ export function ProjectsProvider({ projects, children }: ProjectsProviderProps) 
   );
 
   return <ProjectsContext.Provider value={value}>{children}</ProjectsContext.Provider>;
-}
-
-export function useProjects(): ProjectsContextValue {
-  const context = useContext(ProjectsContext);
-
-  if (!context) {
-    throw new Error('useProjects must be used within a ProjectsProvider.');
-  }
-
-  return context;
 }

@@ -1,14 +1,7 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from 'react';
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import type { AppSettings, LanguageCode, ThemeAccentId, ThemeMode } from '../../domain/entities';
 import type { IAppSettingsStorage } from '../../domain/repositories';
+import { SettingsContext, type SettingsContextValue } from './settings_scope';
 
 interface SettingsProviderProps {
   readonly storage: IAppSettingsStorage;
@@ -16,17 +9,6 @@ interface SettingsProviderProps {
   readonly onLanguageChange?: (language: LanguageCode) => void;
   readonly children: ReactNode;
 }
-
-interface SettingsContextValue {
-  readonly settings: AppSettings;
-  readonly setTheme: (theme: ThemeAccentId) => void;
-  readonly setMode: (mode: ThemeMode) => void;
-  readonly toggleMode: () => void;
-  readonly setLanguage: (language: LanguageCode) => void;
-  readonly setActiveProject: (projectId: string | null) => void;
-}
-
-const SettingsContext = createContext<SettingsContextValue | null>(null);
 
 export function SettingsProvider({
   storage,
@@ -87,14 +69,4 @@ export function SettingsProvider({
   );
 
   return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>;
-}
-
-export function useSettings(): SettingsContextValue {
-  const context = useContext(SettingsContext);
-
-  if (!context) {
-    throw new Error('useSettings must be used within a SettingsProvider.');
-  }
-
-  return context;
 }

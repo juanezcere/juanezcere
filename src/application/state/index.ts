@@ -1,11 +1,12 @@
-export {
-  NAVIGATION_VIEWS,
-  NavigationProvider,
-  useNavigation,
-  type ViewId,
-} from './navigation_context';
-export { ProfileProvider, useProfile } from './profile_context';
-export { ProjectModalProvider, useProjectModal } from './project_modal_context';
-export { ProjectsProvider, useProjects } from './projects_context';
-export { SettingsProvider, useSettings } from './settings_context';
-export { ThemeProvider, useTheme } from './theme_context';
+export { NavigationProvider } from './navigation_context';
+export { NAVIGATION_VIEWS, useNavigation, type ViewId } from './navigation_scope';
+export { ProfileProvider } from './profile_context';
+export { useProfile } from './profile_scope';
+export { ProjectModalProvider } from './project_modal_context';
+export { useProjectModal } from './project_modal_scope';
+export { ProjectsProvider } from './projects_context';
+export { useProjects } from './projects_scope';
+export { SettingsProvider } from './settings_context';
+export { useSettings } from './settings_scope';
+export { ThemeProvider } from './theme_context';
+export { useTheme } from './theme_scope';

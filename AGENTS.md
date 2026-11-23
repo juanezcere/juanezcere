@@ -19,10 +19,12 @@ implementar. Este archivo solo cubre lo que no es evidente desde el código.
 - El prototipo vanilla se conserva en `prototype/index.html` y sigue siendo la
   **fuente de verdad visual**. No lo borres ni lo edites salvo para comparar.
 - React 19, TypeScript, `@vitejs/plugin-react`, i18next/react-i18next,
-  Tailwind CSS v4, Framer Motion y lucide-react ya están instalados.
-  ESLint/Prettier/Husky **no**; no los asumas.
-- `pnpm lint` falla porque ESLint no está instalado; `pnpm test` falla por
-  diseño (`exit 1`). `pnpm type-check` sí funciona.
+  Tailwind CSS v4, Framer Motion, lucide-react y ESLint (`@eslint/js`,
+  `typescript-eslint`, `eslint-plugin-react-hooks`,
+  `eslint-plugin-react-refresh`, `globals`) ya están instalados.
+  Prettier/Husky **no**; no los asumas.
+- `pnpm lint`, `pnpm type-check` y `pnpm build` pasan sin warnings; `pnpm test`
+  falla por diseño (`exit 1`).
 - No instales dependencias sin preguntar antes.
 - Los 5 proyectos seed están en `public/projects.json`; reemplázalos por
   proyectos reales cuando estén disponibles. Cada proyecto guarda
@@ -66,6 +68,9 @@ root) y la dirección de dependencias:
   en localStorage; `ThemeProvider` deriva tema/modo de él y
   `NavigationProvider` solo maneja la vista activa. El idioma se sincroniza
   con i18next mediante el callback inyectado en `main.tsx`.
+- Cada provider vive en `*_context.tsx` y exporta solo el componente; el
+  contexto y su hook están en `*_scope.ts` para cumplir
+  `react-refresh/only-export-components`.
 - La persistencia usa `LocalStorageService` (namespace `juanezcere`) y la clave
   `app-settings.v1`; los diccionarios viven en `public/locales/*.json` y se
   cargan por `fetch` en `main.tsx` junto con `public/profile.json` y
