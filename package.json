@@ -1,11 +1,12 @@
 {
   "name": "juanezcere",
   "version": "1.0.0",
-  "description": "Curriculum vitae web project code.",
+  "description": "Portfolio personal inspirado en la UI de inicio de Xbox Series X.",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +23,14 @@
   "packageManager": "pnpm@12.21.0",
   "type": "module",
   "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "typescript": "^7.0.2",
     "vite": "^8.3.8"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   }
 }

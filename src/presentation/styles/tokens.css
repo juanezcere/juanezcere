@@ -1,0 +1,84 @@
+:root {
+  --font-family-base: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --accent: #107c10;
+  --accent-glow: rgba(16, 124, 16, 0.55);
+  --accent-soft: rgba(16, 124, 16, 0.22);
+}
+
+[data-theme='xbox-green'] {
+  --accent: #107c10;
+  --accent-glow: rgba(16, 124, 16, 0.55);
+  --accent-soft: rgba(16, 124, 16, 0.22);
+}
+
+[data-theme='cyber-blue'] {
+  --accent: #0078d4;
+  --accent-glow: rgba(0, 120, 212, 0.55);
+  --accent-soft: rgba(0, 120, 212, 0.22);
+}
+
+[data-theme='crimson-red'] {
+  --accent: #e81123;
+  --accent-glow: rgba(232, 17, 35, 0.55);
+  --accent-soft: rgba(232, 17, 35, 0.22);
+}
+
+[data-theme='solar-amber'] {
+  --accent: #f7630c;
+  --accent-glow: rgba(247, 99, 12, 0.55);
+  --accent-soft: rgba(247, 99, 12, 0.22);
+}
+
+[data-theme='neon-purple'] {
+  --accent: #881798;
+  --accent-glow: rgba(136, 23, 152, 0.55);
+  --accent-soft: rgba(136, 23, 152, 0.22);
+}
+
+[data-theme='emerald-mint'] {
+  --accent: #00b294;
+  --accent-glow: rgba(0, 178, 148, 0.55);
+  --accent-soft: rgba(0, 178, 148, 0.22);
+}
+
+[data-theme='gold-edition'] {
+  --accent: #ffb900;
+  --accent-glow: rgba(255, 185, 0, 0.55);
+  --accent-soft: rgba(255, 185, 0, 0.22);
+}
+
+[data-mode='dark'] {
+  --bg-base: #0a0c10;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.72);
+  --glass-bg: rgba(18, 22, 30, 0.48);
+  --glass-bg-hover: rgba(30, 36, 48, 0.62);
+  --glass-bg-strong: rgba(14, 17, 24, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  --backdrop-overlay: linear-gradient(
+    180deg,
+    rgba(8, 10, 14, 0.55) 0%,
+    rgba(8, 10, 14, 0.25) 45%,
+    rgba(8, 10, 14, 0.85) 100%
+  );
+}
+
+[data-mode='light'] {
+  --bg-base: #e9eef5;
+  --text-primary: #0f172a;
+  --text-secondary: rgba(15, 23, 42, 0.72);
+  --glass-bg: rgba(255, 255, 255, 0.52);
+  --glass-bg-hover: rgba(255, 255, 255, 0.74);
+  --glass-bg-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+  --backdrop-overlay: linear-gradient(
+    180deg,
+    rgba(241, 245, 249, 0.62) 0%,
+    rgba(241, 245, 249, 0.28) 45%,
+    rgba(241, 245, 249, 0.88) 100%
+  );
+}

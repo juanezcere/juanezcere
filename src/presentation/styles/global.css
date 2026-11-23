@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+html[data-mode='light'] {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-family-base);
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.bootstrap {
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.bootstrap h1,
+.bootstrap p {
+  margin: 0;
+}
+
+.bootstrap h1 {
+  font-size: 1.5rem;
+}
+
+.bootstrap p {
+  color: var(--text-secondary);
+}
