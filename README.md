@@ -50,7 +50,7 @@ Aplicación web interactiva de portafolio profesional inspirada en la interfaz d
 - Estilos & UI: Tailwind CSS (mediante variables CSS nativas para el cambio dinámico de los 7 colores de acento y modos claro/oscuro) + Framer Motion (para transiciones fluidas tipo consola, escalado de tarjetas y cambios de fondo).
 - Iconografía: Lucide React (para las pestañas centrales, controles superiores e indicadores de sistema).Internacionalización (i18n): i18next + react-i18next (soporte estructurado para 5 idiomas con detección y persistencia).
 - Gestión de Estado & Persistencia: React Context API (para preferencias de usuario: tema, modo, idioma y proyecto activo) sincronizado con localStorage.
-- Calidad de Código: ESLint + Prettier + Husky (validación de tipado y reglas de arquitectura antes de cada commit).
+- Calidad de Código: TypeScript estricto y `pnpm typecheck`; ESLint + Prettier + Husky quedan pendientes.
 - Arquitectura por Capas y Estructura de Carpetas
 
 El proyecto sigue una Arquitectura por Capas desacoplada y orientada a los principios SOLID, separando estrictamente la lógica de dominio, la obtención/adaptación de datos y la presentación visual:
@@ -67,9 +67,9 @@ src/
 │   └── state/               # Stores o Contextos globales (ThemeContext, SettingsContext)
 │
 ├── infrastructure/          # Capa 3: Implementaciones técnicas y fuentes de datos
-│   ├── repositories/        # Implementación concreta (StaticProjectRepository / ApiRepository)
+│   ├── repositories/        # Implementación concreta (JsonProjectRepository / ApiRepository)
 │   ├── storage/             # Adaptador de persistencia (LocalStorageService)
-│   ├── i18n/                # Configuración y diccionarios JSON (es, en, pt, fr, de)
+│   ├── i18n/                # Configuración; diccionarios en public/locales (es, en, pt, fr, de)
 │   └── time/                # Servicio de reloj en tiempo real
 │
 ├── presentation/            # Capa 4: Interfaz de usuario (Componentes y Vistas)
@@ -88,6 +88,25 @@ src/
 │
 └── main.tsx                 # Punto de entrada e inyección de dependencias
 ```
+
+### Datos editables
+
+El contenido y los diccionarios viven en `public/` para poder editarlos sin
+tocar código:
+
+```
+public/
+├── profile.json              # Perfil con translations es/en/pt/fr/de
+├── projects.json            # Proyectos con translations es/en/pt/fr/de
+└── locales/                 # Diccionarios de interfaz (es, en, pt, fr, de)
+```
+
+Cada proyecto de `projects.json` conserva datos compartidos (`id`,
+`technologies`, `imageUrl`, `featured`, `year` y `links` opcionales) y agrupa
+`title`, `category` y `description` dentro de `translations`. En `profile.json`,
+el nombre, el badge y los avatares son compartidos, mientras que `title` y `bio`
+se agrupan por idioma dentro de `translations`. El idioma activo se resuelve
+con fallback a español en ambos casos.
 
 ### Puesta en Marcha
 

@@ -6,14 +6,16 @@ implementar. Este archivo solo cubre lo que no es evidente desde el código.
 
 ## Estado actual vs. objetivo
 
-- Las **Fases 1, 2 y 3** están implementadas: dominio puro en `src/domain/`,
+- Las **Fases 1, 2, 3 y 4** están implementadas: dominio puro en `src/domain/`,
   estado global en `src/application/state/` (`SettingsProvider`,
-  `ThemeProvider`, `NavigationProvider`), infraestructura en
-  `src/infrastructure/` (`StaticProjectRepository`, localStorage, i18next,
-  reloj) y shell React en `src/presentation/` (`AppShell` + `TopBar` con
-  `ProfileBanner`, `NavTabs` y `SystemControls`).
-- Las vistas de Home/About/Projects/Settings siguen siendo placeholders; no
-  hay dashboard, carrusel ni router todavía. Eso es Fase 4-5.
+  `ThemeProvider`, `NavigationProvider`, `ProjectsProvider`), infraestructura
+  en `src/infrastructure/` (repositorios JSON, localStorage, i18next, reloj) y
+  shell React en `src/presentation/` (`AppShell` + `TopBar` con `ProfileBanner`,
+  `NavTabs` y `SystemControls`). `HomeView` ya incluye dashboard, fondo
+  dinámico, carrusel y accesos rápidos.
+- Las vistas de About/Projects/Settings siguen siendo placeholders; el modal de
+  detalle y las vistas finales son Fase 5. No hay router: la navegación es
+  estado (`NavigationProvider`).
 - El prototipo vanilla se conserva en `prototype/index.html` y sigue siendo la
   **fuente de verdad visual**. No lo borres ni lo edites salvo para comparar.
 - React 19, TypeScript, `@vitejs/plugin-react`, i18next/react-i18next,
@@ -22,13 +24,16 @@ implementar. Este archivo solo cubre lo que no es evidente desde el código.
 - `pnpm lint` falla porque ESLint no está instalado; `pnpm test` falla por
   diseño (`exit 1`). `pnpm typecheck` sí funciona.
 - No instales dependencias sin preguntar antes.
-- Los 5 proyectos de `src/infrastructure/repositories/data/projects.ts` son
-  datos seed copiados del prototipo (imágenes remotas de Unsplash); deben
-  reemplazarse por proyectos reales cuando estén disponibles.
+- Los 5 proyectos seed están en `public/projects.json` (imágenes remotas de
+  Unsplash); reemplázalos por proyectos reales cuando estén disponibles. Cada
+  proyecto guarda `translations` para `es/en/pt/fr/de`.
 - El perfil (nombre, badge y avatares light/dark) vive en
-  `src/infrastructure/repositories/data/profile.json`; editarlo no requiere
-  tocar código. `ProfileBanner` elige el avatar según `mode`. El título
-  profesional se traduce desde i18n (`profile.title`).
+  `public/profile.json`; editarlo no requiere tocar código. `ProfileBanner`
+  elige el avatar según `mode`. El título y el bio están en `translations`
+  por idioma dentro del mismo JSON, con fallback a español.
+- Los diccionarios i18n están en `public/locales/{es,en,pt,fr,de}.json` y se
+  cargan con `fetch` antes de renderizar. Deben mantener las mismas claves que
+  `es.json`.
 
 ## Comandos
 
@@ -56,13 +61,19 @@ root) y la dirección de dependencias:
   `NavigationProvider` solo maneja la vista activa. El idioma se sincroniza
   con i18next mediante el callback inyectado en `main.tsx`.
 - La persistencia usa `LocalStorageService` (namespace `juanezcere`) y la clave
-  `app-settings.v1`; los diccionarios viven en
-  `src/infrastructure/i18n/locales/*.json` y deben mantener las mismas claves
-  que `es.json`.
+  `app-settings.v1`; los diccionarios viven en `public/locales/*.json` y se
+  cargan por `fetch` en `main.tsx` junto con `public/profile.json` y
+  `public/projects.json`.
 - El perfil sigue el mismo patrón: `IUserProfileRepository` en dominio,
-  `StaticUserProfileRepository` en infraestructura y `ProfileProvider` en
-  aplicación. Nombre/badge/avatares salen del JSON; el título sale de i18n
-  (`profile.title`).
+  `JsonUserProfileRepository` en infraestructura y `ProfileProvider` en
+  aplicación. Nombre/badge/avatares salen del JSON; título y bio se localizan
+  con `application/use_cases/localize_profile.ts` según `settings.language`.
+- Los proyectos usan `IProjectRepository` / `JsonProjectRepository`; el dominio
+  guarda `translations` por idioma y el caso de uso
+  `application/use_cases/localize_project.ts` resuelve el idioma activo con
+  fallback a español. `ProjectsProvider` expone los proyectos ya localizados.
+- El proyecto activo se persiste como `activeProjectId` dentro de `AppSettings`
+  y `HomeView` lo mantiene sincronizado con el carrusel.
 - Tailwind v4 se integra con `@tailwindcss/vite`; `global.css` define `@theme`
   mapeando los tokens de `tokens.css` a utilidades (`bg-accent`, `text-text-secondary`,
   `bg-glass`, etc.). Las clases `.glass-panel`/`.glass-popover` están en
@@ -106,8 +117,9 @@ Contratos de UI ya fijados en el prototipo (mantenerlos al migrar a React):
 - `prototype/index.html` carga Lucide desde el CDN de unpkg e imágenes remotas
   de Unsplash; necesita red. La versión React usa `lucide-react` local.
 - La UI existente está en `src/presentation/components/top_bar/`,
+  `src/presentation/components/dashboard/`, `src/presentation/views/`,
   `src/presentation/layouts/` y `src/presentation/styles/`; no hay vistas
   finales ni router. La navegación es estado (`NavigationProvider`).
-- `StaticProjectRepository` aún no está cableado en `main.tsx`; se conectará
-  cuando el carrusel lo consuma (Fase 4). El perfil sí está cableado vía
-  `ProfileProvider`.
+- `HomeView` consume `ProjectsProvider` y mantiene el foco del carrusel con
+  flechas `←/→`; el fondo y las tarjetas usan `framer-motion`. El detalle del
+  proyecto y el catálogo completo quedan para Fase 5.

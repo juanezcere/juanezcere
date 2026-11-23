@@ -1,0 +1,30 @@
+{
+  "name": "Juan Esteban García Cardona",
+  "badge": "DEV",
+  "avatarUrls": {
+    "light": "https://raw.githubusercontent.com/juanezcere/juanezcere.github.io/master/light_photo.jpg",
+    "dark": "https://raw.githubusercontent.com/juanezcere/juanezcere.github.io/master/dark_photo.jpg"
+  },
+  "translations": {
+    "es": {
+      "title": "Ingeniero Electrónico & Desarrollador de Software",
+      "bio": "Ingeniero electrónico con amplia experiencia en desarrollo y diseño de hardware y software, con enfoque en sistemas embebidos y algoritmos."
+    },
+    "en": {
+      "title": "Electronics Engineer & Software Developer",
+      "bio": "Electronics engineer with extensive experience in hardware and software development and design, focused on embedded systems and algorithms."
+    },
+    "pt": {
+      "title": "Engenheiro Eletrônico & Desenvolvedor de Software",
+      "bio": "Engenheiro eletrônico com ampla experiência em desenvolvimento e design de hardware e software, com foco em sistemas embarcados e algoritmos."
+    },
+    "fr": {
+      "title": "Ingénieur Électronique & Développeur Logiciel",
+      "bio": "Ingénieur électronique disposant d'une vaste expérience en développement et conception de matériel et de logiciels, spécialisé dans les systèmes embarqués et les algorithmes."
+    },
+    "de": {
+      "title": "Elektronikingenieur & Softwareentwickler",
+      "bio": "Elektronikingenieur mit umfangreicher Erfahrung in Entwicklung und Design von Hardware und Software, mit Fokus auf eingebettete Systeme und Algorithmen."
+    }
+  }
+}

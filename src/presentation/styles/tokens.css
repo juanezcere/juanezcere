@@ -3,6 +3,14 @@
   --accent: #107c10;
   --accent-glow: rgba(16, 124, 16, 0.55);
   --accent-soft: rgba(16, 124, 16, 0.22);
+  --text-on-media: #ffffff;
+  --avatar-ring-end: rgba(255, 255, 255, 0.6);
+  --tile-border: rgba(255, 255, 255, 0.15);
+  --tile-overlay: linear-gradient(
+    180deg,
+    rgba(10, 12, 16, 0.15) 0%,
+    rgba(10, 12, 16, 0.82) 100%
+  );
 }
 
 [data-theme='xbox-green'] {

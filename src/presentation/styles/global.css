@@ -8,6 +8,7 @@
   --color-bg-base: var(--bg-base);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
+  --color-text-on-media: var(--text-on-media);
   --color-glass: var(--glass-bg);
   --color-glass-hover: var(--glass-bg-hover);
   --color-glass-strong: var(--glass-bg-strong);

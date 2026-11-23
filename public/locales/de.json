@@ -1,8 +1,9 @@
 {
   "app": {
     "name": "X-Folio Series X",
-    "phaseTitle": "Phase 2: Infrastruktur und Zustand",
-    "phaseDescription": "Repositories, Persistenz und Provider sind bereit."
+    "phaseTitle": "Phase 4: Hauptbühne",
+    "phaseDescription": "Karussell, dynamischer Hintergrund und bearbeitbare Daten aus public/.",
+    "loadError": "Die Anwendungsdaten konnten nicht geladen werden."
   },
   "nav": {
     "label": "Hauptnavigation",
@@ -10,9 +11,6 @@
     "about": "Über mich",
     "projects": "Projekte",
     "settings": "Einstellungen"
-  },
-  "profile": {
-    "title": "Elektronikingenieur & Softwareentwickler"
   },
   "controls": {
     "theme": "Akzentfarbe",
@@ -36,7 +34,12 @@
     "bio": "Entwickler für reaktive Benutzeroberflächen mit Vite, TypeScript und React in Schichtenarchitektur und nach SOLID-Prinzipien."
   },
   "projects": {
-    "heading": "Vollständiger Projektkatalog"
+    "heading": "Vollständiger Projektkatalog",
+    "carouselLabel": "Projektkarussell",
+    "previous": "Vorheriges Projekt",
+    "next": "Nächstes Projekt",
+    "empty": "Keine Projekte verfügbar",
+    "emptyDescription": "Füge Projekte in public/projects.json hinzu."
   },
   "settings": {
     "heading": "Systemeinstellungen",

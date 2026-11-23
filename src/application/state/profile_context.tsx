@@ -1,21 +1,26 @@
 import { createContext, useContext, useMemo, type ReactNode } from 'react';
-import type { UserProfile } from '../../domain/entities';
-import type { IUserProfileRepository } from '../../domain/repositories';
+import type { LocalizedUserProfile, UserProfile } from '../../domain/entities';
+import { localizeProfile } from '../use_cases';
+import { useSettings } from './settings_context';
 
 interface ProfileProviderProps {
-  readonly repository: IUserProfileRepository;
+  readonly profile: UserProfile;
   readonly children: ReactNode;
 }
 
-const ProfileContext = createContext<UserProfile | null>(null);
+const ProfileContext = createContext<LocalizedUserProfile | null>(null);
 
-export function ProfileProvider({ repository, children }: ProfileProviderProps) {
-  const profile = useMemo(() => repository.getProfile(), [repository]);
+export function ProfileProvider({ profile, children }: ProfileProviderProps) {
+  const { settings } = useSettings();
+  const localizedProfile = useMemo(
+    () => localizeProfile(profile, settings.language),
+    [profile, settings.language],
+  );
 
-  return <ProfileContext.Provider value={profile}>{children}</ProfileContext.Provider>;
+  return <ProfileContext.Provider value={localizedProfile}>{children}</ProfileContext.Provider>;
 }
 
-export function useProfile(): UserProfile {
+export function useProfile(): LocalizedUserProfile {
   const profile = useContext(ProfileContext);
 
   if (!profile) {

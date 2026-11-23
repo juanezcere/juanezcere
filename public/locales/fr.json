@@ -1,8 +1,9 @@
 {
   "app": {
     "name": "X-Folio Series X",
-    "phaseTitle": "Phase 2 : infrastructure et état",
-    "phaseDescription": "Dépôts, persistance et fournisseurs prêts."
+    "phaseTitle": "Phase 4 : scène principale",
+    "phaseDescription": "Carrousel, arrière-plan dynamique et données modifiables depuis public/.",
+    "loadError": "Les données de l’application n’ont pas pu être chargées."
   },
   "nav": {
     "label": "Navigation principale",
@@ -10,9 +11,6 @@
     "about": "À propos",
     "projects": "Projets",
     "settings": "Paramètres"
-  },
-  "profile": {
-    "title": "Ingénieur Électronique & Développeur Logiciel"
   },
   "controls": {
     "theme": "Couleur d’accent",
@@ -36,7 +34,12 @@
     "bio": "Développeur spécialisé dans les interfaces réactives avec Vite, TypeScript et React en architecture en couches et principes SOLID."
   },
   "projects": {
-    "heading": "Catalogue complet des projets"
+    "heading": "Catalogue complet des projets",
+    "carouselLabel": "Carrousel de projets",
+    "previous": "Projet précédent",
+    "next": "Projet suivant",
+    "empty": "Aucun projet disponible",
+    "emptyDescription": "Ajoutez des projets dans public/projects.json."
   },
   "settings": {
     "heading": "Paramètres système",
