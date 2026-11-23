@@ -4,7 +4,7 @@
     "featured": true,
     "year": 2025,
     "technologies": ["React 19", "TypeScript", "Vite", "WebSockets"],
-    "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80",
+    "imageUrl": "/images/projects/nebula-cloud-os.jpg",
     "translations": {
       "es": {
         "title": "Nebula Cloud OS",
@@ -38,7 +38,7 @@
     "featured": true,
     "year": 2024,
     "technologies": ["TypeScript", "Canvas API", "Tailwind", "Clean Arch"],
-    "imageUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80",
+    "imageUrl": "/images/projects/aether-analytics.jpg",
     "translations": {
       "es": {
         "title": "Aether Analytics",
@@ -72,7 +72,7 @@
     "featured": true,
     "year": 2024,
     "technologies": ["Web Audio API", "React", "TypeScript", "GLSL"],
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80",
+    "imageUrl": "/images/projects/vortex-audio-engine.jpg",
     "translations": {
       "es": {
         "title": "Vortex Audio Engine",
@@ -106,7 +106,7 @@
     "featured": false,
     "year": 2023,
     "technologies": ["Vite", "React", "Zustand", "REST API"],
-    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80",
+    "imageUrl": "/images/projects/chrono-task-ai.jpg",
     "translations": {
       "es": {
         "title": "ChronoTask AI",
@@ -140,7 +140,7 @@
     "featured": false,
     "year": 2023,
     "technologies": ["TypeScript", "CSS Variables", "Storybook", "ARIA"],
-    "imageUrl": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&w=1400&q=80",
+    "imageUrl": "/images/projects/solstice-design-system.jpg",
     "translations": {
       "es": {
         "title": "Solstice Design System",

@@ -14,11 +14,10 @@
   },
   "controls": {
     "theme": "Accent color",
-    "themeTitle": "Accent color (7)",
+    "themeTitle": "Accent color",
     "language": "Language",
-    "languageTitle": "Language (5)",
-    "mode": "Mode",
-    "clock": "Time"
+    "languageTitle": "Language",
+    "mode": "Mode"
   },
   "home": {
     "explore": "Explore",
@@ -31,6 +30,7 @@
   },
   "about": {
     "heading": "About me — architecture & design",
+    "email": "Email",
     "stack": "Stack",
     "contact": "Contact"
   },

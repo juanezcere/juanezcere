@@ -97,6 +97,9 @@ tocar código:
 
 ```
 public/
+├── images/                  # Avatares e imágenes de proyectos (sin red al renderizar)
+│   ├── profile/             # light.jpg y dark.jpg
+│   └── projects/            # Una imagen por id de proyecto
 ├── profile.json              # Perfil con translations es/en/pt/fr/de
 ├── projects.json            # Proyectos con translations es/en/pt/fr/de
 └── locales/                 # Diccionarios de interfaz (es, en, pt, fr, de)
@@ -108,7 +111,8 @@ Cada proyecto de `projects.json` conserva datos compartidos (`id`,
 el nombre, el badge, los avatares, `stack`, `email` y `socialLinks` son
 compartidos, mientras que `title` y `bio` se agrupan por idioma dentro de
 `translations`. El idioma activo se resuelve con fallback a español en ambos
-casos.
+casos. Las rutas de `avatarUrls` e `imageUrl` apuntan a archivos dentro de
+`public/images/`, por lo que la interfaz no depende de imágenes remotas.
 
 ### Puesta en Marcha
 

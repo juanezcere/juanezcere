@@ -1,21 +1,34 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { ClockService } from '../../infrastructure/time/clock_service';
 
-export function useClock(clock: ClockService, locale: string): string {
-  const [time, setTime] = useState(() => clock.getCurrentTime(locale));
+interface ClockValue {
+  readonly time: string;
+  readonly date: string;
+}
+
+export function useClock(clock: ClockService, locale: string): ClockValue {
+  const readClock = useCallback<() => ClockValue>(
+    () => ({
+      time: clock.getCurrentTime(locale),
+      date: clock.getCurrentDate(locale),
+    }),
+    [clock, locale],
+  );
+
+  const [value, setValue] = useState<ClockValue>(readClock);
 
   useEffect(() => {
-    const updateTime = () => {
-      setTime(clock.getCurrentTime(locale));
+    const update = () => {
+      setValue(readClock());
     };
 
-    updateTime();
-    const intervalId = window.setInterval(updateTime, 1000);
+    update();
+    const intervalId = window.setInterval(update, 1000);
 
     return () => {
       window.clearInterval(intervalId);
     };
-  }, [clock, locale]);
+  }, [readClock]);
 
-  return time;
+  return value;
 }

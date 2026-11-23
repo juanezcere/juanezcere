@@ -3,6 +3,7 @@ import { Sparkles } from 'lucide-react';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigation, useProjectModal, useProjects, useSettings } from '../../application/state';
+import { TechnologyTag } from '../components/common/TechnologyTag';
 import { DynamicBackdrop } from '../components/dashboard/DynamicBackdrop';
 import { ProjectCarousel } from '../components/dashboard/ProjectCarousel';
 import { QuickAccessRow } from '../components/dashboard/QuickAccessRow';
@@ -126,12 +127,7 @@ export function HomeView() {
                 </p>
                 <div className="mt-3.5 flex flex-wrap gap-2">
                   {activeProject.technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-lg border border-glass-border bg-glass-hover px-2.5 py-1 text-[0.78rem]"
-                    >
-                      {technology}
-                    </span>
+                    <TechnologyTag key={technology} label={technology} />
                   ))}
                 </div>
               </motion.section>

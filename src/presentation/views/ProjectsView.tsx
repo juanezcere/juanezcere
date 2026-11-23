@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useProjectModal, useProjects } from '../../application/state';
+import { TechnologyTag } from '../components/common/TechnologyTag';
 
 export function ProjectsView() {
   const { t } = useTranslation();
@@ -130,12 +131,7 @@ export function ProjectsView() {
                 </p>
                 <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
                   {project.technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-md border border-glass-border bg-glass-hover px-2 py-0.5 text-[0.72rem]"
-                    >
-                      {technology}
-                    </span>
+                    <TechnologyTag key={technology} label={technology} compact />
                   ))}
                 </div>
               </div>

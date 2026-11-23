@@ -1,6 +1,7 @@
 import { Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useProfile, useTheme } from '../../application/state';
+import { TechnologyTag } from '../components/common/TechnologyTag';
 
 export function AboutView() {
   const { t } = useTranslation();
@@ -39,12 +40,7 @@ export function AboutView() {
           </h2>
           <div className="flex flex-wrap gap-2">
             {profile.stack.map((technology) => (
-              <span
-                key={technology}
-                className="rounded-lg border border-glass-border bg-glass-hover px-2.5 py-1 text-[0.82rem]"
-              >
-                {technology}
-              </span>
+              <TechnologyTag key={technology} label={technology} />
             ))}
           </div>
         </div>
@@ -58,10 +54,11 @@ export function AboutView() {
               {profile.email ? (
                 <a
                   href={`mailto:${profile.email}`}
+                  title={profile.email}
                   className="inline-flex items-center gap-2 rounded-full border border-glass-border bg-glass-hover px-3.5 py-2 text-sm font-semibold transition hover:border-accent"
                 >
                   <Mail size={15} aria-hidden="true" />
-                  {profile.email}
+                  {t('about.email')}
                 </a>
               ) : null}
               {profile.socialLinks?.map((link) => (

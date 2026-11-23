@@ -14,11 +14,10 @@
   },
   "controls": {
     "theme": "Cor de destaque",
-    "themeTitle": "Cor de destaque (7)",
+    "themeTitle": "Cor de destaque",
     "language": "Idioma",
-    "languageTitle": "Idioma (5)",
-    "mode": "Modo",
-    "clock": "Hora"
+    "languageTitle": "Idioma",
+    "mode": "Modo"
   },
   "home": {
     "explore": "Explorar",
@@ -31,6 +30,7 @@
   },
   "about": {
     "heading": "Sobre mim — arquitetura & design",
+    "email": "E-mail",
     "stack": "Stack",
     "contact": "Contato"
   },

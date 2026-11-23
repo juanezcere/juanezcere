@@ -14,11 +14,10 @@
   },
   "controls": {
     "theme": "Akzentfarbe",
-    "themeTitle": "Akzentfarbe (7)",
+    "themeTitle": "Akzentfarbe",
     "language": "Sprache",
-    "languageTitle": "Sprache (5)",
-    "mode": "Modus",
-    "clock": "Uhrzeit"
+    "languageTitle": "Sprache",
+    "mode": "Modus"
   },
   "home": {
     "explore": "Entdecken",
@@ -31,6 +30,7 @@
   },
   "about": {
     "heading": "Über mich — Architektur & Design",
+    "email": "E-Mail",
     "stack": "Stack",
     "contact": "Kontakt"
   },

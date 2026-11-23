@@ -18,7 +18,7 @@ export function SystemControls() {
   const { t } = useTranslation();
   const { theme, mode, setTheme, toggleMode } = useTheme();
   const { settings, setLanguage } = useSettings();
-  const time = useClock(clockService, settings.language);
+  const { time, date } = useClock(clockService, settings.language);
   const [openPopover, setOpenPopover] = useState<OpenPopover>(null);
   const controlsRef = useRef<HTMLDivElement>(null);
 
@@ -91,7 +91,7 @@ export function SystemControls() {
         />
         <time
           className="border-l border-glass-border pl-2 text-sm font-semibold tracking-wide tabular-nums"
-          title={t('controls.clock')}
+          title={date}
         >
           {time}
         </time>
@@ -153,7 +153,10 @@ export function SystemControls() {
                     settings.language === language.code ? 'bg-accent-soft font-semibold' : ''
                   }`}
                 >
-                  <span>{language.label}</span>
+                  <span className="flex items-center gap-2">
+                    <span aria-hidden="true">{language.flag}</span>
+                    {language.label}
+                  </span>
                   <span className="text-[0.75rem] opacity-60">
                     {language.code.toUpperCase()}
                   </span>

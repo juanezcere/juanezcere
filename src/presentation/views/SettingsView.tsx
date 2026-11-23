@@ -116,7 +116,10 @@ export function SettingsView() {
                     isSelected ? 'bg-accent-soft font-semibold text-accent' : ''
                   }`}
                 >
-                  <span>{language.label}</span>
+                  <span className="flex items-center gap-2">
+                    <span aria-hidden="true">{language.flag}</span>
+                    {language.label}
+                  </span>
                   <span className="text-[0.75rem] opacity-60">{language.code.toUpperCase()}</span>
                 </button>
               );

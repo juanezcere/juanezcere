@@ -3,6 +3,7 @@ import { ExternalLink, X } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useProjectModal, useProjects } from '../../../application/state';
+import { TechnologyTag } from '../common/TechnologyTag';
 
 export function ProjectModal() {
   const { t } = useTranslation();
@@ -127,12 +128,7 @@ export function ProjectModal() {
               {project.technologies.length > 0 ? (
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-lg border border-glass-border bg-glass-hover px-2.5 py-1 text-[0.78rem]"
-                    >
-                      {technology}
-                    </span>
+                    <TechnologyTag key={technology} label={technology} />
                   ))}
                 </div>
               ) : null}

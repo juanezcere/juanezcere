@@ -2,8 +2,8 @@
   "name": "Juan Esteban García Cardona",
   "badge": "DEV",
   "avatarUrls": {
-    "light": "https://raw.githubusercontent.com/juanezcere/juanezcere.github.io/master/light_photo.jpg",
-    "dark": "https://raw.githubusercontent.com/juanezcere/juanezcere.github.io/master/dark_photo.jpg"
+    "light": "/images/profile/light.jpg",
+    "dark": "/images/profile/dark.jpg"
   },
   "stack": [
     "React",
