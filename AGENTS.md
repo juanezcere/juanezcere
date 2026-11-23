@@ -22,7 +22,7 @@ implementar. Este archivo solo cubre lo que no es evidente desde el código.
   Tailwind CSS v4, Framer Motion y lucide-react ya están instalados.
   ESLint/Prettier/Husky **no**; no los asumas.
 - `pnpm lint` falla porque ESLint no está instalado; `pnpm test` falla por
-  diseño (`exit 1`). `pnpm typecheck` sí funciona.
+  diseño (`exit 1`). `pnpm type-check` sí funciona.
 - No instales dependencias sin preguntar antes.
 - Los 5 proyectos seed están en `public/projects.json`; reemplázalos por
   proyectos reales cuando estén disponibles. Cada proyecto guarda
@@ -46,9 +46,10 @@ Usa siempre pnpm (pin `pnpm@12.21.0` en `package.json`), nunca npm/yarn.
 
 ```bash
 pnpm install
-pnpm dev        # Vite sirve index.html (entrada React)
-pnpm typecheck  # tsc --noEmit
-pnpm build      # tsc --noEmit && vite build
+pnpm dev
+pnpm type-check
+pnpm lint
+pnpm build
 pnpm preview
 ```
 
