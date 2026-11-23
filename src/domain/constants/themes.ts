@@ -54,3 +54,11 @@ export const THEMES = [
 
 export const DEFAULT_THEME_ID: ThemeAccentId = 'xbox-green';
 export const DEFAULT_THEME_MODE: ThemeMode = 'dark';
+
+export function isThemeAccentId(value: unknown): value is ThemeAccentId {
+  return THEMES.some((theme) => theme.id === value);
+}
+
+export function isThemeMode(value: unknown): value is ThemeMode {
+  return value === 'dark' || value === 'light';
+}

@@ -6,18 +6,23 @@ implementar. Este archivo solo cubre lo que no es evidente desde el código.
 
 ## Estado actual vs. objetivo
 
-- La **Fase 1** está implementada: dominio puro en `src/domain/` (entidades,
-  puerto `IProjectRepository`, constantes de 7 temas y 5 idiomas) y tokens CSS
-  en `src/presentation/styles/tokens.css`. `src/main.tsx` solo renderiza un
-  placeholder de verificación; aún no hay UI real.
+- Las **Fases 1 y 2** están implementadas: dominio puro en `src/domain/`,
+  estado global en `src/application/state/` (`SettingsProvider`,
+  `ThemeProvider`, `NavigationProvider`) e infraestructura en
+  `src/infrastructure/` (`StaticProjectRepository`, localStorage, i18next).
+- `src/main.tsx` solo renderiza `PhaseStatus` como smoke test; **no hay UI
+  real todavía**. El shell y la TopBar son la Fase 3.
 - El prototipo vanilla se conserva en `prototype/index.html` y sigue siendo la
   **fuente de verdad visual**. No lo borres ni lo edites salvo para comparar.
-- React 19, TypeScript y `@vitejs/plugin-react` ya están instalados. Tailwind,
-  Framer Motion, Lucide React, i18next, ESLint/Prettier/Husky **no** están;
-  no los importes ni asumas que existen.
+- React 19, TypeScript, `@vitejs/plugin-react`, i18next y react-i18next ya
+  están instalados. Tailwind, Framer Motion, Lucide React y
+  ESLint/Prettier/Husky **no**; no los importes ni asumas que existen.
 - `pnpm lint` falla porque ESLint no está instalado; `pnpm test` falla por
   diseño (`exit 1`). `pnpm typecheck` sí funciona.
 - No instales dependencias sin preguntar antes.
+- Los 5 proyectos de `src/infrastructure/repositories/data/projects.ts` son
+  datos seed copiados del prototipo (imágenes remotas de Unsplash); deben
+  reemplazarse por proyectos reales cuando estén disponibles.
 
 ## Comandos
 
@@ -40,6 +45,14 @@ root) y la dirección de dependencias:
 - `presentation → application → domain`; `infrastructure` implementa los
   contratos definidos en `domain`.
 - `domain` debe ser puro: sin imports de React ni de infraestructura.
+- `SettingsProvider` es la única fuente de verdad de `AppSettings` y persiste
+  en localStorage; `ThemeProvider` deriva tema/modo de él y
+  `NavigationProvider` solo maneja la vista activa. El idioma se sincroniza
+  con i18next mediante el callback inyectado en `main.tsx`.
+- La persistencia usa `LocalStorageService` (namespace `juanezcere`) y la clave
+  `app-settings.v1`; los diccionarios viven en
+  `src/infrastructure/i18n/locales/*.json` y deben mantener las mismas claves
+  que `es.json`.
 
 Contratos de UI ya fijados en el prototipo (mantenerlos al migrar a React):
 
@@ -77,4 +90,6 @@ Contratos de UI ya fijados en el prototipo (mantenerlos al migrar a React):
   de Unsplash; necesita red. En la versión React se espera `lucide-react`
   (aún no instalado), no el CDN.
 - `src/main.tsx` y `src/presentation/styles/` son el único código de
-  presentación existente; no hay componentes ni router todavía.
+  presentación existente; no hay componentes de UI finales ni router todavía.
+- `StaticProjectRepository` aún no está cableado en `main.tsx`; se conectará
+  cuando el carrusel/vistas lo consuman (Fases 3-4).

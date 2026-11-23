@@ -1,0 +1,45 @@
+{
+  "app": {
+    "name": "X-Folio Series X",
+    "phaseTitle": "Phase 2: infrastructure and state",
+    "phaseDescription": "Repositories, persistence, and providers are ready."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About me",
+    "projects": "Projects",
+    "settings": "Settings"
+  },
+  "profile": {
+    "role": "Frontend & UI Architect"
+  },
+  "controls": {
+    "theme": "Accent color",
+    "themeTitle": "Accent color (7)",
+    "language": "Language",
+    "languageTitle": "Language (5)",
+    "mode": "Mode",
+    "clock": "Time"
+  },
+  "home": {
+    "explore": "Explore",
+    "allProjects": "All projects",
+    "profile": "Profile",
+    "aboutMe": "About me & stack",
+    "featured": "Featured",
+    "customize": "Customize",
+    "glassSettings": "Theme & glass"
+  },
+  "about": {
+    "heading": "About me — architecture & design",
+    "bio": "Developer specialized in reactive interfaces built with Vite, TypeScript, and React using layered architecture and SOLID principles."
+  },
+  "projects": {
+    "heading": "Full project catalog"
+  },
+  "settings": {
+    "heading": "System settings",
+    "description": "Customize the 7 accent colors, the light/dark mode, and the interface language.",
+    "toggleMode": "Toggle light / dark mode"
+  }
+}

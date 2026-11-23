@@ -1,0 +1,45 @@
+{
+  "app": {
+    "name": "X-Folio Series X",
+    "phaseTitle": "Phase 2: Infrastruktur und Zustand",
+    "phaseDescription": "Repositories, Persistenz und Provider sind bereit."
+  },
+  "nav": {
+    "home": "Start",
+    "about": "Über mich",
+    "projects": "Projekte",
+    "settings": "Einstellungen"
+  },
+  "profile": {
+    "role": "Frontend- & UI-Architekt"
+  },
+  "controls": {
+    "theme": "Akzentfarbe",
+    "themeTitle": "Akzentfarbe (7)",
+    "language": "Sprache",
+    "languageTitle": "Sprache (5)",
+    "mode": "Modus",
+    "clock": "Uhrzeit"
+  },
+  "home": {
+    "explore": "Entdecken",
+    "allProjects": "Alle Projekte",
+    "profile": "Profil",
+    "aboutMe": "Über mich & Stack",
+    "featured": "Empfohlen",
+    "customize": "Anpassen",
+    "glassSettings": "Design & Glas"
+  },
+  "about": {
+    "heading": "Über mich — Architektur & Design",
+    "bio": "Entwickler für reaktive Benutzeroberflächen mit Vite, TypeScript und React in Schichtenarchitektur und nach SOLID-Prinzipien."
+  },
+  "projects": {
+    "heading": "Vollständiger Projektkatalog"
+  },
+  "settings": {
+    "heading": "Systemeinstellungen",
+    "description": "Passe die 7 Akzentfarben, den Hell-/Dunkelmodus und die Sprache der Oberfläche an.",
+    "toggleMode": "Hell- / Dunkelmodus wechseln"
+  }
+}

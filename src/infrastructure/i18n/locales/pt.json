@@ -1,0 +1,45 @@
+{
+  "app": {
+    "name": "X-Folio Series X",
+    "phaseTitle": "Fase 2: infraestrutura e estado",
+    "phaseDescription": "Repositórios, persistência e provedores prontos."
+  },
+  "nav": {
+    "home": "Início",
+    "about": "Sobre mim",
+    "projects": "Projetos",
+    "settings": "Configurações"
+  },
+  "profile": {
+    "role": "Arquiteto Frontend & UI"
+  },
+  "controls": {
+    "theme": "Cor de destaque",
+    "themeTitle": "Cor de destaque (7)",
+    "language": "Idioma",
+    "languageTitle": "Idioma (5)",
+    "mode": "Modo",
+    "clock": "Hora"
+  },
+  "home": {
+    "explore": "Explorar",
+    "allProjects": "Todos os projetos",
+    "profile": "Perfil",
+    "aboutMe": "Sobre mim & stack",
+    "featured": "Destaque",
+    "customize": "Personalizar",
+    "glassSettings": "Tema & vidro"
+  },
+  "about": {
+    "heading": "Sobre mim — arquitetura & design",
+    "bio": "Desenvolvedor especializado em interfaces reativas com Vite, TypeScript e React em arquitetura em camadas e princípios SOLID."
+  },
+  "projects": {
+    "heading": "Catálogo completo de projetos"
+  },
+  "settings": {
+    "heading": "Configurações do sistema",
+    "description": "Personalize as 7 cores de destaque, o modo claro/escuro e o idioma da interface.",
+    "toggleMode": "Alternar modo claro / escuro"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "app": {
+    "name": "X-Folio Series X",
+    "phaseTitle": "Phase 2 : infrastructure et état",
+    "phaseDescription": "Dépôts, persistance et fournisseurs prêts."
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "settings": "Paramètres"
+  },
+  "profile": {
+    "role": "Architecte Frontend & UI"
+  },
+  "controls": {
+    "theme": "Couleur d’accent",
+    "themeTitle": "Couleur d’accent (7)",
+    "language": "Langue",
+    "languageTitle": "Langue (5)",
+    "mode": "Mode",
+    "clock": "Heure"
+  },
+  "home": {
+    "explore": "Explorer",
+    "allProjects": "Tous les projets",
+    "profile": "Profil",
+    "aboutMe": "À propos & stack",
+    "featured": "En vedette",
+    "customize": "Personnaliser",
+    "glassSettings": "Thème & verre"
+  },
+  "about": {
+    "heading": "À propos — architecture & design",
+    "bio": "Développeur spécialisé dans les interfaces réactives avec Vite, TypeScript et React en architecture en couches et principes SOLID."
+  },
+  "projects": {
+    "heading": "Catalogue complet des projets"
+  },
+  "settings": {
+    "heading": "Paramètres système",
+    "description": "Personnalisez les 7 couleurs d’accent, le mode clair/sombre et la langue de l’interface.",
+    "toggleMode": "Basculer mode clair / sombre"
+  }
+}

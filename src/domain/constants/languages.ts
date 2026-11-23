@@ -9,3 +9,7 @@ export const LANGUAGES = [
 ] as const satisfies readonly Language[];
 
 export const DEFAULT_LANGUAGE_CODE: LanguageCode = 'es';
+
+export function isLanguageCode(value: unknown): value is LanguageCode {
+  return LANGUAGES.some((language) => language.code === value);
+}
