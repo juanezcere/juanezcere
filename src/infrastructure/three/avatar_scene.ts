@@ -11,12 +11,13 @@ type AvatarSceneCallbacks = {
 
 const MODEL_TARGET = new THREE.Vector3(0, 1, 0);
 const CROSS_FADE_DURATION = 0.3;
+const ANIMATION_COOLDOWN_MS = 60_000;
 
 const ZOOM = {
   enabled: true,
-  minDistance: 4.0,
+  minDistance: 3.75,
   maxDistance: 4.5,
-  speed: 0.8,
+  speed: 0.1,
 } as const;
 
 export class AvatarScene {
@@ -38,6 +39,8 @@ export class AvatarScene {
   private stumbleAction: THREE.AnimationAction | null = null;
   private wavingDuration = 0;
   private stumbleDuration = 0;
+  private lastWaveAt = Number.NEGATIVE_INFINITY;
+  private lastStumbleAt = Number.NEGATIVE_INFINITY;
   private frameId = 0;
   private timerId = 0;
   private busy = false;
@@ -193,7 +196,13 @@ export class AvatarScene {
   }
 
   private readonly handleDoubleClick = (event: MouseEvent): void => {
-    if (!this.avatar || this.busy) {
+    const now = Date.now();
+
+    if (
+      !this.avatar ||
+      this.busy ||
+      now - this.lastStumbleAt < ANIMATION_COOLDOWN_MS
+    ) {
       return;
     }
 
@@ -215,6 +224,7 @@ export class AvatarScene {
       return;
     }
 
+    this.lastStumbleAt = now;
     window.clearTimeout(this.timerId);
     this.busy = true;
     stumbleAction.reset();
@@ -224,7 +234,9 @@ export class AvatarScene {
   };
 
   private readonly handlePointerEnter = (): void => {
-    if (!this.avatar || this.busy) {
+    const now = Date.now();
+
+    if (!this.avatar || this.busy || now - this.lastWaveAt < ANIMATION_COOLDOWN_MS) {
       return;
     }
 
@@ -235,6 +247,7 @@ export class AvatarScene {
       return;
     }
 
+    this.lastWaveAt = now;
     window.clearTimeout(this.timerId);
     this.busy = true;
     wavingAction.reset();

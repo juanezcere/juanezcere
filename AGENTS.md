@@ -105,7 +105,8 @@ root) y la dirección de dependencias:
   el contenedor. El canvas es transparente y usa pedestal/sombras del
   prototipo. El zoom se controla con el objeto `ZOOM` de `avatar_scene.ts`
   (`enabled`, `minDistance`, `maxDistance` y `speed`); `enabled: false` lo
-  desactiva.
+  desactiva. `Waving` y `Stumble` tienen un cooldown independiente de 60
+  segundos (`ANIMATION_COOLDOWN_MS`).
 - `TechnologyTag` centraliza las etiquetas de stack/tecnologías con ícono
   lucide; `LANGUAGES` incluye la bandera mostrada en el menú y en `SettingsView`.
 
