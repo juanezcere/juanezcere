@@ -3,8 +3,8 @@
 # Soy Juan Esteban García Cardona.
 <div align="center">
 
-<img src="https://github.com/juanezcere/juanezcere.github.io/blob/master/light_photo.jpg?raw=true#gh-light-mode-only" alt="Foto del desarrollador con fondo oscuro" width="200">
-<img src="https://github.com/juanezcere/juanezcere.github.io/blob/master/dark_photo.jpg?raw=true#gh-dark-mode-only" alt="Foto del desarrollador con fondo claro" width="200">
+<img src="https://github.com/juanezcere/juanezcere.github.io/blob/main/images/profile/light.jpg?raw=true#gh-light-mode-only" alt="Foto del desarrollador con fondo oscuro" width="200">
+<img src="https://github.com/juanezcere/juanezcere.github.io/blob/main/images/profile/dark.jpg?raw=true#gh-dark-mode-only" alt="Foto del desarrollador con fondo claro" width="200">
 
 </div>
 
@@ -20,7 +20,7 @@ Además, poseo una sólida experiencia en el desarrollo frontend, utilizando HTM
 💼 Con mis conocimientos he desarrollado en empresas como
 <div align="center">
 
-[<img src="https://github.com/juanezcere/juanezcere.github.io/blob/master/Logo-pimedica-f.png?raw=true" alt="Logo de PiMedica" width="70px">](https://pimedica.com/) &nbsp; |  &nbsp; [<img src="https://github.com/juanezcere/juanezcere.github.io/blob/master/k2k_brand.png?raw=true" alt="Logo de K2K Soluciones" width="70px">](https://k2ksoluciones.com/) &nbsp; |  &nbsp; [<img src="https://github.com/juanezcere/juanezcere.github.io/blob/master/taclla_brand.png?raw=true" alt="Logo de Taclla" width="70px">](https://taclla.com/)
+[<img src="https://github.com/juanezcere/juanezcere.github.io/blob/main/images/companies/pimedica.png?raw=true" alt="Logo de PiMedica" width="70px">](https://pimedica.com/) &nbsp; |  &nbsp; [<img src="https://github.com/juanezcere/juanezcere.github.io/blob/main/images/companies/k2k.png?raw=true" alt="Logo de K2K Soluciones" width="70px">](https://k2ksoluciones.com/) &nbsp; |  &nbsp; [<img src="https://github.com/juanezcere/juanezcere.github.io/blob/main/images/companies/taclla.png?raw=true" alt="Logo de Taclla" width="70px">](https://taclla.com/)
 
 </div>
 
@@ -28,7 +28,7 @@ Además, poseo una sólida experiencia en el desarrollo frontend, utilizando HTM
 
 <div align="center">
 
-💬 [Número telefónico]() &nbsp; |  &nbsp; 📫 [Correo electrónico](mailto:juanezcere@gmail.com)
+💬 [Número telefónico](https://wa.me/12345667890) &nbsp; |  &nbsp; 📫 [Correo electrónico](mailto:juanezcere@gmail.com)
 
 </div>
 
