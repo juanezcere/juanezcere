@@ -90,5 +90,5 @@ if [[ "$PROMOTED" == false ]]; then
   exit 1
 fi
 
-git checkout "$SOURCE_BRANCH"
+git checkout dev
 echo "Deployment pipeline from '$SOURCE_BRANCH' up to '$TARGET_BRANCH' completed successfully!"
