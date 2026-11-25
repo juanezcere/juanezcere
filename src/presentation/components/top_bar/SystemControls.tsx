@@ -59,7 +59,7 @@ export function SystemControls() {
   };
 
   return (
-    <div ref={controlsRef} className="relative lg:justify-self-end">
+    <div ref={controlsRef} className="relative hidden lg:block lg:justify-self-end">
       <GlassPanel className="flex items-center gap-2.5 rounded-full py-1.5 pr-4 pl-2">
         <IconButton
           icon={Palette}

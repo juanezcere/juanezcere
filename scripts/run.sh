@@ -29,4 +29,4 @@ else
 fi
 
 pnpm install --prefer-offline
-pnpm dev "$@"
+pnpm dev --host "$@"

@@ -122,7 +122,7 @@ Contratos de UI ya fijados en el prototipo (mantenerlos al migrar a React):
   hardcodeados.
 - Layout superior: perfil a la izquierda, tabs de íconos al centro
   (`home`, `about`, `projects`, `settings`), reloj + tema/modo/idioma a la
-  derecha.
+  derecha. En móvil (`lg` hacia abajo) se oculta ese bloque de controles.
 
 ## Convenciones
 
