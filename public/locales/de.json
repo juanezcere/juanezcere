@@ -26,7 +26,10 @@
     "aboutMe": "Über mich & Stack",
     "featured": "Empfohlen",
     "customize": "Anpassen",
-    "glassSettings": "Design & Glas"
+    "glassSettings": "Design & Glas",
+    "avatarLabel": "Interaktiver 3D-Avatar",
+    "avatarLoading": "Avatar wird geladen... {{percent}}%",
+    "avatarError": "3D-Avatar konnte nicht geladen werden"
   },
   "about": {
     "heading": "Über mich — Architektur & Design",

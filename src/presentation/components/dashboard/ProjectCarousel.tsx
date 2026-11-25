@@ -38,14 +38,15 @@ export function ProjectCarousel({ projects, activeIndex, onSelect, onOpen }: Pro
             }}
             type="button"
             layout
-            aria-label={
-              isActive ? t('projects.openProject', { title: project.title }) : project.title
-            }
+            aria-label={t('projects.openProject', { title: project.title })}
             aria-pressed={isActive}
-            onClick={() => (isActive ? onOpen(index) : onSelect(index))}
-            whileHover={{ y: -4 }}
+            onPointerEnter={() => onSelect(index)}
+            onFocus={() => onSelect(index)}
+            onClick={() => onOpen(index)}
+            whileHover={{ scale: 1.08, y: -6 }}
+            whileTap={{ scale: 1.03 }}
             transition={{ duration: 0.28, ease: 'easeOut' }}
-            className={`relative flex shrink-0 flex-col justify-end overflow-hidden rounded-[18px] border-2 text-left transition-colors ${
+            className={`relative flex shrink-0 flex-col justify-end overflow-hidden rounded-[18px] border-2 text-left transition-colors hover:z-10 hover:border-accent ${
               isActive
                 ? 'h-[210px] w-[210px] border-accent shadow-[0_0_28px_var(--accent-glow),var(--glass-shadow)] sm:h-[245px] sm:w-[245px]'
                 : 'h-[128px] w-[128px] border-glass-border shadow-[var(--glass-shadow)] sm:h-[148px] sm:w-[148px]'

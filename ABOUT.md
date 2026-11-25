@@ -8,6 +8,7 @@ Aplicación web interactiva de portafolio profesional inspirada en la interfaz d
 - Core & Bundler: React 19 + TypeScript (modo estricto) + Vite.
 - Estilos & UI: Tailwind CSS (mediante variables CSS nativas para el cambio dinámico de los 7 colores de acento y modos claro/oscuro) + Framer Motion (para transiciones fluidas tipo consola, escalado de tarjetas y cambios de fondo).
 - Iconografía: Lucide React (para las pestañas centrales, controles superiores e indicadores de sistema).Internacionalización (i18n): i18next + react-i18next (soporte estructurado para 5 idiomas con detección y persistencia).
+- Gráficos 3D: Three.js con GLTFLoader y OrbitControls para el avatar de `/public/models/avatar.glb` en la vista de inicio.
 - Gestión de Estado & Persistencia: React Context API (para preferencias de usuario: tema, modo, idioma y proyecto activo) sincronizado con localStorage.
 - Calidad de Código: TypeScript estricto, `pnpm type-check` y ESLint configurado con `pnpm lint`; Prettier + Husky quedan pendientes.
 - Arquitectura por Capas y Estructura de Carpetas

@@ -1,6 +1,6 @@
-import { useMemo, type ReactNode } from 'react';
+import { useMemo, useState, type ReactNode } from 'react';
 import type { Project } from '../../domain/entities';
-import { localizeProjects } from '../use_cases';
+import { localizeProjects, selectRandomProjects } from '../use_cases';
 import { ProjectsContext, type ProjectsContextValue } from './projects_scope';
 import { useSettings } from './settings_scope';
 
@@ -11,9 +11,10 @@ interface ProjectsProviderProps {
 
 export function ProjectsProvider({ projects, children }: ProjectsProviderProps) {
   const { settings } = useSettings();
+  const [selectedProjects] = useState(() => selectRandomProjects(projects));
   const localizedProjects = useMemo(
-    () => localizeProjects(projects, settings.language),
-    [projects, settings.language],
+    () => localizeProjects(selectedProjects, settings.language),
+    [selectedProjects, settings.language],
   );
   const value = useMemo<ProjectsContextValue>(
     () => ({ projects: localizedProjects }),

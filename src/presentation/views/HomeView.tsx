@@ -1,10 +1,15 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
-import { useCallback, useEffect } from 'react';
+import { lazy, Suspense, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigation, useProjectModal, useProjects, useSettings } from '../../application/state';
 import { TechnologyTag } from '../components/common/TechnologyTag';
 import { DynamicBackdrop } from '../components/dashboard/DynamicBackdrop';
+
+const AvatarViewer = lazy(async () => {
+  const module = await import('../components/dashboard/AvatarViewer');
+  return { default: module.AvatarViewer };
+});
 import { ProjectCarousel } from '../components/dashboard/ProjectCarousel';
 import { QuickAccessRow } from '../components/dashboard/QuickAccessRow';
 
@@ -133,12 +138,12 @@ export function HomeView() {
               </motion.section>
             </AnimatePresence>
 
-            <ProjectCarousel
-              projects={projects}
-              activeIndex={activeIndex}
-              onSelect={selectProject}
-              onOpen={openProjectAtIndex}
-            />
+              <ProjectCarousel
+                projects={projects}
+                activeIndex={activeIndex}
+                onSelect={selectProject}
+                onOpen={openProjectAtIndex}
+              />
 
             <QuickAccessRow
               activeProject={activeProject}
@@ -154,6 +159,14 @@ export function HomeView() {
             <p className="mt-2 text-sm text-text-secondary">{t('projects.emptyDescription')}</p>
           </section>
         )}
+      </div>
+
+      <div className="relative z-10 h-[280px] w-full sm:h-[340px] lg:pointer-events-none lg:absolute lg:bottom-28 lg:right-0 lg:h-[480px] lg:w-[32%]">
+        <div className="pointer-events-auto h-full w-full">
+          <Suspense fallback={<div className="h-full w-full" aria-hidden="true" />}>
+            <AvatarViewer />
+          </Suspense>
+        </div>
       </div>
     </div>
   );

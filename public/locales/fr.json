@@ -26,7 +26,10 @@
     "aboutMe": "À propos & stack",
     "featured": "En vedette",
     "customize": "Personnaliser",
-    "glassSettings": "Thème & verre"
+    "glassSettings": "Thème & verre",
+    "avatarLabel": "Avatar 3D interactif",
+    "avatarLoading": "Chargement de l'avatar... {{percent}}%",
+    "avatarError": "Impossible de charger l'avatar 3D"
   },
   "about": {
     "heading": "À propos — architecture & design",

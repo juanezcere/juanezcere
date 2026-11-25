@@ -19,8 +19,8 @@ implementar. Este archivo solo cubre lo que no es evidente desde el código.
 - El prototipo vanilla se conserva en `prototype/index.html` y sigue siendo la
   **fuente de verdad visual**. No lo borres ni lo edites salvo para comparar.
 - React 19, TypeScript, `@vitejs/plugin-react`, i18next/react-i18next,
-  Tailwind CSS v4, Framer Motion, lucide-react y ESLint (`@eslint/js`,
-  `typescript-eslint`, `eslint-plugin-react-hooks`,
+  Tailwind CSS v4, Framer Motion, lucide-react, Three.js con `@types/three` y
+  ESLint (`@eslint/js`, `typescript-eslint`, `eslint-plugin-react-hooks`,
   `eslint-plugin-react-refresh`, `globals`) ya están instalados.
   Prettier/Husky **no**; no los asumas.
 - `pnpm lint`, `pnpm type-check` y `pnpm build` pasan sin warnings; `pnpm test`
@@ -82,7 +82,9 @@ root) y la dirección de dependencias:
 - Los proyectos usan `IProjectRepository` / `JsonProjectRepository`; el dominio
   guarda `translations` por idioma y el caso de uso
   `application/use_cases/localize_project.ts` resuelve el idioma activo con
-  fallback a español. `ProjectsProvider` expone los proyectos ya localizados.
+  fallback a español. `select_random_projects.ts` elige hasta 5 de forma
+  aleatoria una sola vez por sesión y `ProjectsProvider` expone solo esos
+  proyectos ya localizados.
 - El proyecto activo se persiste como `activeProjectId` dentro de `AppSettings`
   y `HomeView` lo mantiene sincronizado con el carrusel.
 - `ProjectModalProvider` guarda solo el `selectedProjectId` en memoria;
@@ -96,6 +98,14 @@ root) y la dirección de dependencias:
 - El reloj vive en `src/infrastructure/time/clock_service.ts` y se consume con
   el hook `src/presentation/hooks/use_clock.ts`; usa formato de 24 horas, se
   actualiza cada segundo y su tooltip muestra la fecha localizada.
+- El avatar 3D se sirve desde `public/models/avatar.glb` y se renderiza en la
+  columna derecha de `HomeView` con `AvatarViewer` +
+  `src/infrastructure/three/avatar_scene.ts`: `Idle` en bucle, `Stumble` solo
+  con doble clic sobre el modelo (raycaster) y `Waving` al entrar el cursor en
+  el contenedor. El canvas es transparente y usa pedestal/sombras del
+  prototipo. El zoom se controla con el objeto `ZOOM` de `avatar_scene.ts`
+  (`enabled`, `minDistance`, `maxDistance` y `speed`); `enabled: false` lo
+  desactiva.
 - `TechnologyTag` centraliza las etiquetas de stack/tecnologías con ícono
   lucide; `LANGUAGES` incluye la bandera mostrada en el menú y en `SettingsView`.
 
